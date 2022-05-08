@@ -3,7 +3,7 @@ window.setInterval(function () {
     (function () {
 
         //Remove influencers
-        let useless = ["promoted", "influencer", "content creator", "motivation speaker", "linkedin followers"]
+        let useless = ["brand officer", "help you grow", "promoted", "influencer", "content creator", "motivation speaker", "linkedin followers"]
         nukePost("feed-shared-actor__description", useless);
 
     })();
@@ -18,7 +18,7 @@ window.setInterval(function () {
     (function () {
 
         //Remove useless posts
-        let useless = ["mothers day", "great leader", "mothersday"];
+        let useless = ["mother’s day", "elon musk", "first day in office", "humanitarian crisis", "gas station employee", "nfl", "mothers day", "great leader", "mothersday", "kill you makes you stronger", "#delta"];
         nukePost("feed-shared-text relative feed-shared-update-v2__commentary ", useless);
 
     })();
@@ -53,8 +53,11 @@ window.setInterval(function () {
 
     (function () {
 
-        //remove side ad
-        removeClassElement("scaffold-layout__sticky scaffold-layout__sticky--lg")
+        //remove posts requiring translation
+        var profileImgs = document.getElementsByClassName("feed-shared-see-translation-button");
+        for (var element of profileImgs) {
+            element.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+        }
 
     })();
 
@@ -105,6 +108,17 @@ window.setInterval(function () {
 
     }
 
+}, 1000);
+
+(function () {
+
+    //remove left and right sidebars and reset classes of main screen parents
+    removeClassElement("scaffold-layout__aside");
+    removeClassElement("scaffold-layout__sidebar");
+    var mainScreen = document.getElementById("main");
+    mainScreen.parentElement.className = "";
+    mainScreen.parentElement.parentElement.className = "";
+
     function removeClassElement(classText) {
 
         let elements = document.getElementsByClassName(classText);
@@ -114,4 +128,4 @@ window.setInterval(function () {
 
     }
 
-}, 1000);
+})();
