@@ -71,6 +71,17 @@ window.setInterval(function () {
 
     })();
 
+    (function () {
+
+        //remove left and right sidebars and reset classes of main screen parents
+        removeClassElement("scaffold-layout__aside");
+        removeClassElement("scaffold-layout__sidebar");
+        var mainScreen = document.getElementById("main");
+        mainScreen.parentElement.className = "";
+        mainScreen.parentElement.parentElement.className = "";
+
+    })();
+
     function replacePostMedia(postMediaClass, linkText) {
 
         let postMedia = document.getElementsByClassName(postMediaClass);
@@ -108,17 +119,6 @@ window.setInterval(function () {
 
     }
 
-}, 1000);
-
-(function () {
-
-    //remove left and right sidebars and reset classes of main screen parents
-    removeClassElement("scaffold-layout__aside");
-    removeClassElement("scaffold-layout__sidebar");
-    var mainScreen = document.getElementById("main");
-    mainScreen.parentElement.className = "";
-    mainScreen.parentElement.parentElement.className = "";
-
     function removeClassElement(classText) {
 
         let elements = document.getElementsByClassName(classText);
@@ -128,4 +128,4 @@ window.setInterval(function () {
 
     }
 
-})();
+}, 1000);
