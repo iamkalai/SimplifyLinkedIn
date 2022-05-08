@@ -3,7 +3,7 @@ window.setInterval(function () {
     (function () {
 
         //Remove influencers
-        let useless = ["promoted", "influencer", "content creator", "motivation speaker"]
+        let useless = ["promoted", "influencer", "content creator", "motivation speaker", "linkedin followers"]
         nukePost("feed-shared-actor__description", useless);
 
     })();
@@ -12,6 +12,14 @@ window.setInterval(function () {
 
         //Remove promoted ads
         nukePost("feed-shared-actor__sub-description", ["promoted"]);
+
+    })();
+
+    (function () {
+
+        //Remove useless posts
+        let useless = ["mothers day", "great leader", "mothersday"];
+        nukePost("feed-shared-text relative feed-shared-update-v2__commentary ", useless);
 
     })();
 
@@ -44,6 +52,14 @@ window.setInterval(function () {
     })();
 
     (function () {
+
+        //remove side ad
+        removeClassElement("scaffold-layout__sticky scaffold-layout__sticky--lg")
+
+    })();
+
+    (function () {
+
         //remove celebration image
         let profileImgs = document.getElementsByClassName("feed-shared-celebration text-align-center feed-shared-update-v2__content");
         for (let element of profileImgs) {
@@ -78,15 +94,24 @@ window.setInterval(function () {
 
     function nukePost(postMediaClass, searchTermArray) {
 
-        const profileTitles = document.getElementsByClassName(postMediaClass);
-        for (const pTitle of profileTitles) {
-            const title = (pTitle.innerHTML.trim()).toLowerCase();
-
-            if (searchTermArray.some(v => title.includes(v))) {
-                const element = (pTitle.parentElement.parentElement.parentElement.parentElement.parentElement);
+        const posts = document.getElementsByClassName(postMediaClass);
+        for (const post of posts) {
+            const text = (post.innerHTML.trim()).toLowerCase();
+            if (searchTermArray.some(v => text.includes(v))) {
+                const element = (post.parentElement.parentElement.parentElement.parentElement.parentElement);
                 element.remove();
             }
         }
+
+    }
+
+    function removeClassElement(classText) {
+
+        let elements = document.getElementsByClassName(classText);
+        for (const element of elements) {
+            element.remove();
+        }
+
     }
 
 }, 1000);
