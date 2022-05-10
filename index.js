@@ -3,7 +3,7 @@ window.setInterval(function () {
     (function () {
 
         //Remove influencers
-        let useless = ["brand officer", "help you grow", "promoted", "influencer", "content creator", "motivation speaker", "linkedin followers"]
+        let useless = ["youtuber", "brand officer", "keynote speaker", "help you grow", "promoted", "influencer", "content creator", "motivation speaker", "linkedin followers"]
         nukePost("feed-shared-actor__description", useless);
 
     })();
@@ -18,7 +18,7 @@ window.setInterval(function () {
     (function () {
 
         //Remove useless posts
-        let useless = ["mother’s day", "elon musk", "first day in office", "humanitarian crisis", "gas station employee", "nfl", "mothers day", "great leader", "mothersday", "kill you makes you stronger", "#delta"];
+        let useless = ["cab driver", "auto driver", "cancer", "inspirational leadership", "dating", "travelled to", "husband", "mother", "mother’s day", "mother's day", "elon musk", "first day in office", "humanitarian crisis", "gas station employee", "nfl", "mothers day", "great leader", "mothersday", "kill you makes you stronger", "#delta"];
         nukePost("feed-shared-text relative feed-shared-update-v2__commentary ", useless);
 
     })();
